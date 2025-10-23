@@ -9,6 +9,8 @@ from datetime import datetime
 
 from .lezione import Lezione
 from .oggi import Oggi
+from .notizia import Notizia
+from .bacheca import Bacheca
 
 def parse_date(date:str) -> datetime:
     mesi_italiani = {
@@ -141,6 +143,29 @@ class ClasseViva(Utils):
                 for lezione in self.b.find_elements(By.CSS_SELECTOR, "div.table-row")
             ],
         )
+    
+    def bacheca(self) -> Bacheca:
+        if not self.logged:
+            self.login()
+
+        self.b.get("https://web.spaggiari.eu/sif/app/default/bacheca_personale.php")
+
+        self.wait(self.b, (By.CSS_SELECTOR, "#box_row_other"))
+
+        b = Bacheca(timestamp=datetime.now())
+        for row in self.b.find_elements(By.CSS_SELECTOR, '#box_row_other > tr'):
+            print(row.text)
+            titolo, _, data, _ = row.text.split('\n')
+            notizia = Notizia(parse_date(data), titolo)
+            row.find_element(By.CSS_SELECTOR, 'a.specifica').click()
+            self.wait(self.b, (By.CSS_SELECTOR, '.ui-dialog-title'))
+            notizia.testo = self.b.find_element(By.CSS_SELECTOR, '.comunicazione_testo').text
+
+            b.notizie.append(notizia)
+
+        return b
+
+            
 
     def _parse_lezione(self, lezione: WebElement) -> Lezione:
         # _, presente, ora, materia, materia_short, docente, argomento = lezione.text.split(

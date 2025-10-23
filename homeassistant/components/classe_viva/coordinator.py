@@ -54,4 +54,5 @@ class ClasseVivaCoordinator(DataUpdateCoordinator):
         # driver.quit()
         # return {"data": oggi, "eventi": data}
         classe_viva = ClasseViva(self.username, self.password)
+        bacheca = classe_viva.bacheca()
         return classe_viva.oggi()
