@@ -1,0 +1,19 @@
+{
+  "domain": "classe_viva",
+  "name": "ClasseViva Integration",
+  "codeowners": [
+    "@paraflu"
+  ],
+  "version": "1.0.0",
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://www.home-assistant.io/integrations/classe_viva",
+  "homekit": {},
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "requirements": [
+    "selenium==4.37.0"
+  ],
+  "ssdp": [],
+  "zeroconf": []
+}

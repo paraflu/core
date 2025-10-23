@@ -2312,6 +2312,9 @@ screenlogicpy==0.10.2
 # homeassistant.components.backup
 securetar==2025.2.1
 
+# homeassistant.components.classe_viva
+selenium==4.37.0
+
 # homeassistant.components.emulated_kasa
 # homeassistant.components.sense
 sense-energy==0.13.8

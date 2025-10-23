@@ -1,0 +1,7 @@
+aggiorna:
+  name: Aggiorna dati
+  description: Forza l'aggiornamento immediato dei dati da ClasseViva
+
+reload:
+  name: Ricarica integrazione
+  description: Ricarica completamente l'integrazione ClasseViva

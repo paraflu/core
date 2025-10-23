@@ -2784,6 +2784,9 @@ scsgate==0.1.0
 # homeassistant.components.backup
 securetar==2025.2.1
 
+# homeassistant.components.classe_viva
+selenium==4.37.0
+
 # homeassistant.components.sendgrid
 sendgrid==6.8.2
 
